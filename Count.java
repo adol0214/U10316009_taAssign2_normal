@@ -21,8 +21,6 @@ public class Count extends JFrame{
 	JLabel Triangle2 = new JLabel("Triangle End : ");
 	JLabel Rectangle1 = new JLabel("Rectangle Long : ");
 	JLabel Rectangle2 = new JLabel("Rectangle Width : ");
-	JLabel Triangle = new JLabel("Triangle : ");
-	JLabel Rectangle = new JLabel("Rectangle : ");
 	JPanel panel = new JPanel();
 	JPanel panel1 = new JPanel();
 	JPanel panel2 = new JPanel();
@@ -31,12 +29,9 @@ public class Count extends JFrame{
 	JPanel panel6 = new JPanel();
 	JPanel panel7 = new JPanel();
 	
-	int Radius;
-	int TriangleTall;
-	int TriangleEnd;
-	int RectangleLong;
-	int RectangleWidth;
-	double TriPar;
+	Circle Cir1 = new Circle();
+	Triangle Tri1 = new Triangle();
+	Rectangle Rec1 = new Rectangle();
 	
 	Count(){
 		this.setLayout(new GridLayout(10,1));
@@ -85,18 +80,17 @@ public class Count extends JFrame{
 		jbtCnt.addActionListener(new ActionListener(){ 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Radius = Integer.parseInt(cirrad.getText());
-				TriangleTall = Integer.parseInt(tritall.getText());
-				TriangleEnd = Integer.parseInt(triend.getText());
-				RectangleLong = Integer.parseInt(reclong.getText());
-				RectangleWidth = Integer.parseInt(recwid.getText());
-				CirclePrint1.setText((Radius * Radius * 3.14) + "");
-				CirclePrint2.setText((2 * Radius * 3.14) + "");
-				RectanglePrint1.setText((RectangleLong * RectangleWidth) + "");
-				RectanglePrint2.setText(((RectangleLong + RectangleWidth) * 2) + "");
-				TrianglePrint1.setText((TriangleTall * TriangleEnd / 2) + "");
-				TriPar = Math.sqrt(TriangleTall * TriangleTall + TriangleEnd * TriangleEnd) + TriangleTall + TriangleEnd;
-				TrianglePrint2.setText(TriPar + "");
+				Cir1.Radius = Integer.parseInt(cirrad.getText());
+				Tri1.TriangleTall = Integer.parseInt(tritall.getText());
+				Tri1.TriangleEnd = Integer.parseInt(triend.getText());
+				Rec1.RectangleLong = Integer.parseInt(reclong.getText());
+				Rec1.RectangleWidth = Integer.parseInt(recwid.getText());
+				CirclePrint1.setText(Cir1.CirArea(Cir1.Radius) + "");
+				CirclePrint2.setText(Cir1.CirPar(Cir1.Radius) + "");
+				RectanglePrint1.setText(Rec1.RecArea(Rec1.RectangleLong , Rec1.RectangleWidth) + "");
+				RectanglePrint2.setText(Rec1.RecPar(Rec1.RectangleLong , Rec1.RectangleWidth) + "");
+				TrianglePrint1.setText(Tri1.TriArea(Tri1.TriangleTall, Tri1.TriangleEnd) + "");
+				TrianglePrint2.setText(Tri1.TriPar(Tri1.TriangleTall, Tri1.TriangleEnd) + "");
 				
 			}
 		}
